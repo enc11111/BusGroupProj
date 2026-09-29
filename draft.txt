@@ -45,5 +45,37 @@ public class FromFileReader implements Input {
 		}
 		return buses;
 	}
+}
+package org.input;
+
+import java.util.Collection;
+import java.util.Random;
+
+public class RandomGenerator implements Input {
+	Random rand;
+	
+	public RandomGenerator() {
+		this.rand = new Random();
+	}
+	private String generateRouteNumber() {
+		StringBuilder temp = new StringBuilder();
+		char c = (char)rand.nextInt();
+		if(c == 'E' || c == 'e' || c == 'M' || c == 'm' || c == 'C' || c == 'c' || c == 'T' || c == 't' || c == 'H')
+			temp.append(c);
+		int route = rand.nextInt(2500);
+		temp.append(route);
+		return temp.toString();
+	}
+	@Override
+	public Object readBus(String... info) {
+		
+		return null;
+	}
+
+	@Override
+	public Collection<?> fillCollection(int length) {
+		return null;
+	}
 
 }
+
